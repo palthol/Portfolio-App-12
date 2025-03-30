@@ -1,5 +1,4 @@
-import { Link } from "@remix-run/react"; // Changed from react-router-dom
-
+import { Link } from 'react-router';        
 export function Navigation() {
   return (
     <nav className="flex space-x-4">
@@ -12,7 +11,8 @@ export function Navigation() {
       <Link to="/projects" className="text-blue-600 hover:underline">
         Portfolio
       </Link>
-      <Link to="/contact" className="text-blue-600 hover:underline">
+      <Link to="/contact" className="text-blue-600 hover:
+      underline">
         Contact
       </Link>
     </nav>
