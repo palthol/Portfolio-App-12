@@ -1,11 +1,9 @@
-import { useParams } from "@remix-run/react";
+import { useParams } from 'react-router';
 import { projects } from "../../data/projects";
-import ProjectCard from "../../components/ProjectCard";
 
 export default function ProjectDetail() {
   const { projectId } = useParams();
-  const project = projects.find((proj) => proj.id === projectId);
-
+  const project = projects.find((proj) => proj.id === Number(projectId));
   if (!project) {
     return <div>Project not found</div>;
   }

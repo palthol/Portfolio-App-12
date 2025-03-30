@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { Link } from "@remix-run/react";
+import { Link } from 'react-router';
 import { motion } from "framer-motion";
 
 export default function Home() {
@@ -36,7 +35,7 @@ function HeroSection() {
           className="max-w-3xl"
         >
           <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-            Hello, I'm <span className="text-gray-800 dark:text-white">Your Name</span>
+            Hello, I'm <span className="text-gray-800 dark:text-white">Palth</span>
           </h1>
           
           <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-gray-700 dark:text-gray-300">
