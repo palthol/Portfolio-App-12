@@ -1,6 +1,7 @@
-import { Link } from "react-router";
+import { Link } from "react-router"; // Fix the import
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Navigation from "../Navigation";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,6 +16,8 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <header 
@@ -40,24 +43,7 @@ export default function Header() {
         </motion.div>
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          {["Home", "About", "Projects", "Contact"].map((item, index) => (
-            <motion.div
-              key={item}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-            >
-              <Link 
-                to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                className="relative font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
-              >
-                {item}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-600 dark:bg-indigo-400 transition-all group-hover:w-full"></span>
-              </Link>
-            </motion.div>
-          ))}
-        </nav>
+        <Navigation />
         
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center">
@@ -102,18 +88,7 @@ export default function Header() {
           className="md:hidden bg-white dark:bg-gray-900 shadow-lg"
         >
           <div className="container mx-auto px-6 py-4">
-            <nav className="flex flex-col space-y-4">
-              {["Home", "About", "Projects", "Contact"].map((item) => (
-                <Link 
-                  key={item}
-                  to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                  className="font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item}
-                </Link>
-              ))}
-            </nav>
+            <Navigation isMobile onItemClick={closeMenu} />
           </div>
         </motion.div>
       )}
