@@ -23,8 +23,6 @@ An elegant, responsive portfolio website showcasing my skills, projects, and pro
 
 ![Contact Page Preview](./images/contact.jpeg)
 
-![Portfolio Preview](https://via.placeholder.com/1200x600?text=Portfolio+Preview)
-
 ## ✨ Features
 
 - **Stunning UI**: Modern design with gradient accents and smooth animations
